@@ -84,10 +84,11 @@ public class Game extends Canvas implements Runnable {
 	}
 	
 	private void update() {
-		
-		
+		x++;
+		y++;
 	}
 	
+	int x, y = 0;
 	private void render() {
 		BufferStrategy bs = getBufferStrategy();
 		if (bs == null) {
@@ -96,7 +97,7 @@ public class Game extends Canvas implements Runnable {
 		}
 		
 		screen.clear();
-		screen.render();
+		screen.render(x, y);
 		
 		for (int i = 0; i < pixels.length; i++ ) {
 			pixels[i] = screen.pixels[i]; 	
