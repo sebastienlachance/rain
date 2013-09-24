@@ -44,13 +44,13 @@ public class Level {
 		
 		for	(int y = y0; y < y1; y++) {
 			for(int x = x0; x < x1; x++) {
-				getTile(x, y).render(x, 7, screen);
+				getTile(x, y).render(x, y, screen);
 			}
 		}
 	}
 	
 	public Tile getTile(int x, int y) {
-		if (tiles[x+y*width] == 0) return Tile.grass;
+		if (tiles[x + y  *width] == 0) return Tile.grass;
 		return Tile.voidTile;
 	}
 
