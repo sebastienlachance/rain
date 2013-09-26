@@ -1,5 +1,7 @@
 package com.creatiom.rain.entity.mob;
 
+import com.creatiom.rain.graphics.Screen;
+import com.creatiom.rain.graphics.Sprite;
 import com.creatiom.rain.input.Keyboard;
 
 public class Player extends Mob {
@@ -26,7 +28,8 @@ public class Player extends Mob {
 		if (xa != 0 || ya != 0) move(xa, ya);
 	}
 	
-	public void render() {
+	public void render(Screen screen) {
+		screen.renderPlayer(x, y, Sprite.player0);
 	}
 	
 }
