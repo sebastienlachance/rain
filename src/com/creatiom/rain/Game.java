@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import com.creatiom.rain.entity.mob.Player;
 import com.creatiom.rain.graphics.Screen;
 import com.creatiom.rain.input.Keyboard;
+import com.creatiom.rain.input.Mouse;
 import com.creatiom.rain.level.Level;
 import com.creatiom.rain.level.RandomLevel;
 import com.creatiom.rain.level.SpawnLevel;
@@ -52,6 +53,10 @@ public class Game extends Canvas implements Runnable {
 		player.init(level);
 		
 		addKeyListener(key);
+		
+		Mouse mouse = new Mouse();
+		addMouseListener(mouse);
+		addMouseMotionListener(mouse);
 	}
 	
 	public synchronized void start() {
@@ -127,7 +132,8 @@ public class Game extends Canvas implements Runnable {
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Verdana", 0, 50));
-		//g.drawString("X: " + player.x + ", Y: " + player.y, 450, 400);
+		//g.fillRect(Mouse.getX() - 8, Mouse.getY() -8, 16, 16);
+		//if (Mouse.getButton() != -1) g.drawString("Button: " + Mouse.getButton(), 80, 80);
 		g.dispose();
 		bs.show();
 	}
