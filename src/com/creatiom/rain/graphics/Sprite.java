@@ -39,7 +39,7 @@ public class Sprite {
 	public static Sprite projectile_wizard = new Sprite(16, 0, 0, SpriteSheet.projectile_wizard);
 	
 	// Particles
-	public static Sprite particle_normal = new Sprite(3, 0xaaaaaa);
+	public static Sprite particle_normal = new Sprite(3, 0xffaaaaaa);
 	
 	public Sprite(int size, int x, int y, SpriteSheet sheet) {
 		this.width = size;
@@ -61,6 +61,7 @@ public class Sprite {
 	
 	public Sprite(int size, int colour) {
 		this.width = size;
+		this.height = size;
 		SIZE = size;
 		pixels = new int[SIZE*SIZE];
 		setColour(colour);

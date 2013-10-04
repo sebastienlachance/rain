@@ -14,6 +14,7 @@ public class Player extends Mob {
 	private Sprite sprite;
 	private int anim = 0;
 	private boolean walking = false;
+	private int speed = 2;
 	
 	private int fireRate = 0;
 	
@@ -36,10 +37,10 @@ public class Player extends Mob {
 		int xa = 0, ya = 0;
 		if (anim < 7500) anim++;
 		else anim = 0;
-		if (input.up) ya--;
-		if (input.down) ya++;
-		if (input.left) xa--;
-		if (input.right) xa++;
+		if (input.up) ya -= speed;
+		if (input.down) ya += speed;
+		if (input.left) xa -= speed;
+		if (input.right) xa += speed;
 		
 		if (xa != 0 || ya != 0) {
 			move(xa, ya); 

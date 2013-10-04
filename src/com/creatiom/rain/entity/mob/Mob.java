@@ -1,9 +1,7 @@
 package com.creatiom.rain.entity.mob;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.creatiom.rain.entity.Entity;
+import com.creatiom.rain.entity.particle.Particle;
 import com.creatiom.rain.entity.projectile.Projectile;
 import com.creatiom.rain.entity.projectile.WizardProjectile;
 import com.creatiom.rain.graphics.Sprite;
@@ -30,6 +28,9 @@ public abstract class Mob extends Entity {
 		if (!collision(xa, ya)) {
 			x += xa;
 			y += ya;
+		} else {
+			Particle p = new Particle(x, y, 50, 50);
+			level.add(p);
 		}
 	}
 	
