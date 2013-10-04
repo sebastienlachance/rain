@@ -1,8 +1,10 @@
 package com.creatiom.rain.entity.mob;
 
+import com.creatiom.rain.Game;
 import com.creatiom.rain.graphics.Screen;
 import com.creatiom.rain.graphics.Sprite;
 import com.creatiom.rain.input.Keyboard;
+import com.creatiom.rain.input.Mouse;
 
 public class Player extends Mob {
 
@@ -39,6 +41,19 @@ public class Player extends Mob {
 		} 
 		else { 
 			walking = false;
+		}
+		
+		updateShooting();
+	}
+	
+	private void updateShooting(){
+		
+		if (Mouse.getButton() == 1) {
+			//get angle
+			double dx = Mouse.getX() - Game.width /2;
+			double dy = Mouse.getY() - Game.height /2;
+			double dir = Math.atan2(dy, dx);
+			shoot(x, y, dir);
 		}
 	}
 	
