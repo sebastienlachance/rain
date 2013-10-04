@@ -50,9 +50,10 @@ public class Player extends Mob {
 		
 		if (Mouse.getButton() == 1) {
 			//get angle
-			double dx = Mouse.getX() - Game.width /2;
-			double dy = Mouse.getY() - Game.height /2;
+			double dx = Mouse.getX() - Game.getWindowWidth()  /2;
+			double dy = Mouse.getY() - Game.getWindowHeight() /2;
 			double dir = Math.atan2(dy, dx);
+			
 			shoot(x, y, dir);
 		}
 	}

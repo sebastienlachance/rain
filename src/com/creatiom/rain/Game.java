@@ -23,8 +23,8 @@ import com.creatiom.rain.level.TileCoordinate;
 public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
 	
-	public static int width = 600;
-	public static int height = width / 16 * 9;
+	private static int width = 600;
+    private static int height = width / 16 * 9;
 	public static int scale = 2;
 	public static String title = "Rain";
 	
@@ -57,6 +57,14 @@ public class Game extends Canvas implements Runnable {
 		Mouse mouse = new Mouse();
 		addMouseListener(mouse);
 		addMouseMotionListener(mouse);
+	}
+	
+	public static int getWindowWidth() {
+		return width * scale;
+	}
+	
+	public static int getWindowHeight() {
+		return height * scale;
 	}
 	
 	public synchronized void start() {
