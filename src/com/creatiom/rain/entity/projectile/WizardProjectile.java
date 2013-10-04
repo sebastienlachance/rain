@@ -4,13 +4,14 @@ import com.creatiom.rain.graphics.Screen;
 import com.creatiom.rain.graphics.Sprite;
 
 public class WizardProjectile extends Projectile {
+	
+	public static final int FIRE_RATE = 12; // Higher is slower
 
 	public WizardProjectile(int x, int y, double dir) {
 		super(x, y, dir);
 		range = 200;
 		speed = 7;
 		damage = 20;
-		rateOfFire = 15;
 		sprite = Sprite.projectile_wizard;
 		
 		nx = speed * Math.cos(angle);
