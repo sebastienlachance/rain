@@ -1,5 +1,6 @@
 package com.creatiom.rain.entity.projectile;
 
+import com.creatiom.rain.entity.spawner.ParticleSpawner;
 import com.creatiom.rain.graphics.Screen;
 import com.creatiom.rain.graphics.Sprite;
 
@@ -19,7 +20,10 @@ public class WizardProjectile extends Projectile {
 	}
 	
 	public void update() {
-		if (level.tileCollision(x, y, nx, ny, 13)) remove();
+		if (level.tileCollision(x, y, nx, ny, 13)) {
+			level.add(new ParticleSpawner((int)x, (int)y, 44, 50, level));
+			remove();
+		}
 		move();
 	}
 	
