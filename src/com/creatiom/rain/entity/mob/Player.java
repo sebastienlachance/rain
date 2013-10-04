@@ -61,7 +61,6 @@ public class Player extends Mob {
 	}
 	
 	private void updateShooting(){
-		
 		if (Mouse.getButton() == 1 && fireRate <= 0) {
 			//get angle
 			double dx = Mouse.getX() - Game.getWindowWidth()  /2;

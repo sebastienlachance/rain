@@ -9,7 +9,7 @@ public class Entity {
 	
 	public int x, y;
 	private boolean removed = false;
-	protected Level level;
+	public Level level;
 	protected final Random random = new Random();
 	
 	public void update() {
