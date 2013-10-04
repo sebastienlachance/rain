@@ -31,12 +31,25 @@ public class Particle extends Entity {
 		time++;
 		if (time > 7400) time = 0;
 		if (time > life) remove();
-		this.xx += xa;
-		this.yy += ya;
+		if (!collision((int)xa, (int)ya)) {
+			this.xx += xa;
+			this.yy += ya;
+		} 
+	
 	}
 	
 	public void render(Screen screen) {
 		screen.renderSprite((int)xx, (int)yy, this.sprite, true);
+	}
+	
+	private boolean collision(double xa, double ya) {
+		boolean solid = false;
+		for(int c = 0; c < 4; c++) {
+			double xt = ((xx + xa) + c % 2 * sprite.getWidth()) / 16;
+			double yt = ((yy + ya) + c / 2 * sprite.getHeight()) / 16;
+			if (level.getTile((int)xt, (int)yt).solid()) solid = true;
+		}
+		return solid;
 	}
 	
 }
