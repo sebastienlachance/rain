@@ -10,8 +10,8 @@ public class WizardProjectile extends Projectile {
 
 	public WizardProjectile(int x, int y, double dir) {
 		super(x, y, dir);
-		range = 200;
-		speed = 6;
+		range = 250;
+		speed = 4;
 		damage = 20;
 		sprite = Sprite.projectile_wizard;
 		
@@ -20,8 +20,8 @@ public class WizardProjectile extends Projectile {
 	}
 	
 	public void update() {
-		if (level.tileCollision((int)(x + nx), (int)(y + nx), 12, 6, 6)) {
-			level.add(new ParticleSpawner((int)x, (int)y, 44, 50, level));
+		if (level.tileCollision((int)(x + nx), (int)(y + nx), 6, 3, 3)) {
+			level.add(new ParticleSpawner((int)x, (int)y, 44, 70, level));
 			remove();
 		}
 		move();

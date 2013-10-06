@@ -25,9 +25,9 @@ import com.creatiom.rain.level.TileCoordinate;
 public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
 	
-	private static int width = 600;
+	private static int width = 500;
     private static int height = width / 16 * 9;
-	public static int scale = 2;
+	public static int scale = 3;
 	public static String title = "Rain";
 	
 	private Thread thread;
