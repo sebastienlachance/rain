@@ -3,8 +3,10 @@ package com.creatiom.rain.entity.mob;
 import com.creatiom.rain.Game;
 import com.creatiom.rain.entity.projectile.Projectile;
 import com.creatiom.rain.entity.projectile.WizardProjectile;
+import com.creatiom.rain.graphics.AnimatedSprite;
 import com.creatiom.rain.graphics.Screen;
 import com.creatiom.rain.graphics.Sprite;
+import com.creatiom.rain.graphics.SpriteSheet;
 import com.creatiom.rain.input.Keyboard;
 import com.creatiom.rain.input.Mouse;
 
@@ -14,6 +16,7 @@ public class Player extends Mob {
 	private Sprite sprite;
 	private int anim = 0;
 	private boolean walking = false;
+	private AnimatedSprite test = new AnimatedSprite(SpriteSheet.player_down, 32, 32, 3);
 	private int speed = 2;
 	
 	private int fireRate = 0;
@@ -33,6 +36,7 @@ public class Player extends Mob {
 	} 
 	
 	public void update() {
+		test.update();
 		if (fireRate > 0) fireRate--; 
 		int xa = 0, ya = 0;
 		if (anim < 7500) anim++;
@@ -125,6 +129,7 @@ public class Player extends Mob {
 				}
 			}
 		}
+		sprite = test.getSprite();
 		screen.renderPlayer(x - 16, y - 16, sprite, flip);
 	}
 	
