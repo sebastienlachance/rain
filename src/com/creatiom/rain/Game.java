@@ -15,6 +15,7 @@ import javax.swing.JFrame;
 import com.creatiom.rain.entity.mob.Player;
 import com.creatiom.rain.graphics.Screen;
 import com.creatiom.rain.graphics.Sprite;
+import com.creatiom.rain.graphics.SpriteSheet;
 import com.creatiom.rain.input.Keyboard;
 import com.creatiom.rain.input.Mouse;
 import com.creatiom.rain.level.Level;
@@ -25,7 +26,7 @@ import com.creatiom.rain.level.TileCoordinate;
 public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
 	
-	private static int width = 500;
+	private static int width = 400;
     private static int height = width / 16 * 9;
 	public static int scale = 3;
 	public static String title = "Rain";
@@ -133,7 +134,7 @@ public class Game extends Canvas implements Runnable {
 		int yScroll = player.y - screen.height / 2;
 		level.render(xScroll, yScroll, screen);
 		player.render(screen);
-		
+		screen.renderSheet(40, 40, SpriteSheet.player_down, false);
 		for (int i = 0; i < pixels.length; i++ ) {
 			pixels[i] = screen.pixels[i]; 	
 		}
