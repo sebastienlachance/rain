@@ -3,14 +3,26 @@ package com.creatiom.rain.entity;
 import java.util.Random;
 
 import com.creatiom.rain.graphics.Screen;
+import com.creatiom.rain.graphics.Sprite;
 import com.creatiom.rain.level.Level;
 
 public class Entity {
 	
 	private boolean removed = false;
+	protected Sprite sprite;
 	protected final Random random = new Random();
 	public int x, y;
 	public Level level;
+	
+	public Entity() {
+		
+	}
+	
+	public Entity(int x, int y, Sprite sprite)  {
+		this.x = x;
+		this.y = y;
+		this.sprite = sprite;
+	}
 	
 	
 	public void update() {
@@ -23,6 +35,10 @@ public class Entity {
 	public void remove() {
 		//Remove from level
 		removed = true;
+	}
+	
+	public Sprite getSprite() {
+		return sprite;
 	}
 	
 	public boolean isRemoved() {

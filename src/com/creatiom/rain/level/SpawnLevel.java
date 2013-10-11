@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import com.creatiom.rain.entity.mob.Chaser;
 import com.creatiom.rain.entity.mob.Dummy;
 
 public class SpawnLevel extends Level {
@@ -25,7 +26,8 @@ public class SpawnLevel extends Level {
 			System.out.println("Exception! Could not load level file!");
 		} 
 		for (int i = 0; i < 15; i++) {
-			add(new Dummy(20, 55));	
+			add(new Chaser(20, 55));	
+			add(new Dummy(20, 55));
 		}
 	}
 	
