@@ -1,7 +1,6 @@
 package com.creatiom.rain.entity.spawner;
 
 import com.creatiom.rain.entity.Entity;
-import com.creatiom.rain.entity.particle.Particle;
 import com.creatiom.rain.level.Level;
 
 public class Spawner extends Entity {

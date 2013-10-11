@@ -2,9 +2,7 @@ package com.creatiom.rain.graphics;
 
 import java.util.Random;
 
-import com.creatiom.rain.entity.mob.Player;
 import com.creatiom.rain.entity.projectile.Projectile;
-import com.creatiom.rain.level.tile.Tile;
 
 public class Screen {
 	
@@ -100,7 +98,7 @@ public class Screen {
 		}
 	}
 	
-	public void renderPlayer(int xp, int yp, Sprite sprite, int flip) {
+	public void renderMob(int xp, int yp, Sprite sprite, int flip) {
 		xp -= xOffset;
 		yp -= yOffset;
 		for (int y = 0; y < 32; y++) {

@@ -100,7 +100,7 @@ public class Player extends Mob {
 		int flip = 0;
 
 		sprite = animSprite.getSprite();
-		screen.renderPlayer(x - 16, y - 16, sprite, flip);
+		screen.renderMob(x - 16, y - 16, sprite, flip);
 	}
 	
 }

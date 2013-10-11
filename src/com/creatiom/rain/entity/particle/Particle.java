@@ -1,8 +1,5 @@
 package com.creatiom.rain.entity.particle;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.creatiom.rain.entity.Entity;
 import com.creatiom.rain.graphics.Screen;
 import com.creatiom.rain.graphics.Sprite;

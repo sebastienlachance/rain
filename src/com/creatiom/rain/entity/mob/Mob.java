@@ -1,9 +1,9 @@
 package com.creatiom.rain.entity.mob;
 
 import com.creatiom.rain.entity.Entity;
-import com.creatiom.rain.entity.particle.Particle;
 import com.creatiom.rain.entity.projectile.Projectile;
 import com.creatiom.rain.entity.projectile.WizardProjectile;
+import com.creatiom.rain.graphics.Screen;
 import com.creatiom.rain.graphics.Sprite;
 
 public abstract class Mob extends Entity {
@@ -31,8 +31,9 @@ public abstract class Mob extends Entity {
 		} 
 	}
 	
-	public void update() {	
-	}
+	public abstract void update();
+	
+	public abstract void render(Screen screen);
 	
 	protected void shoot(int x, int y, double dir) {
 		Projectile p = new WizardProjectile(x, y, dir);
@@ -49,7 +50,5 @@ public abstract class Mob extends Entity {
 		return solid;
 	}
 	
-	public void render() {
-	}
-	
+
 }

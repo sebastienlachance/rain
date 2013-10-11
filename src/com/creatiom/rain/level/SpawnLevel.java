@@ -5,7 +5,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import com.creatiom.rain.level.tile.Tile;
+import com.creatiom.rain.entity.mob.Dummy;
 
 public class SpawnLevel extends Level {
 	
@@ -24,6 +24,8 @@ public class SpawnLevel extends Level {
 			e.printStackTrace();
 			System.out.println("Exception! Could not load level file!");
 		} 
+		add(new Dummy(20, 55));
+		add(new Dummy(10, 40));
 	}
 	
 	// Grass = 0xFF0000
