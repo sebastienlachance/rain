@@ -35,11 +35,14 @@ public class Sprite {
 	public static Sprite player_back_1 = new Sprite(32, 2, 6, SpriteSheet.tiles);
 	public static Sprite player_back_2 = new Sprite(32, 2, 7, SpriteSheet.tiles);
 	
+	public static Sprite dummy = new Sprite(32, 0, 0, SpriteSheet.dummy_down);
+	
 	// Projectile Sprites here:
 	public static Sprite projectile_wizard = new Sprite(16, 0, 0, SpriteSheet.projectile_wizard);
 	
 	// Particles
 	public static Sprite particle_normal = new Sprite(3, 0xFFFF1300);
+
 	
 	protected Sprite(SpriteSheet sheet, int width, int height) {
 		SIZE = (width == height) ? width : -1;
@@ -98,7 +101,7 @@ public class Sprite {
 	private void load() {
 		for(int y = 0; y < SIZE; y++) {
 			for(int x = 0; x < SIZE; x++) {
-				pixels[x+y*SIZE] = sheet.pixels[(x + this.x) + (y +this.y) * sheet.SIZE];
+				pixels[x+y*SIZE] = sheet.pixels[(x + this.x) + (y +this.y) * sheet.WIDTH];
 			}
 		}
 		
