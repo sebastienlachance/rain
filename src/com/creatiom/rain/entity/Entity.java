@@ -11,7 +11,7 @@ public class Entity {
 	private boolean removed = false;
 	protected Sprite sprite;
 	protected final Random random = new Random();
-	public int x, y;
+	protected int x, y;
 	public Level level;
 	
 	public Entity() {
@@ -35,6 +35,14 @@ public class Entity {
 	public void remove() {
 		//Remove from level
 		removed = true;
+	}
+	
+	public int getX() {
+		return x;
+	}
+	
+	public int getY() {
+		return y;
 	}
 	
 	public Sprite getSprite() {

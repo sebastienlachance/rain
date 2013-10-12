@@ -22,42 +22,16 @@ public class Chaser extends Mob {
 		this.y = y << 4;
 		this.sprite = animSprite.getSprite();
 	}
-
-	public void update() {
-		time++; //60 times per seconds
+	
+	private void move() {
+		xa = 0;
+		ya = 0;
 		
-		if (time % (random.nextInt(50) + 30) == 0) { // = happens once per 1 second
-			xa = random.nextInt(3) - 1;
-			ya = random.nextInt(3) - 1;
-			if (random.nextInt(4) == 0) {
-				xa = 0;
-				ya = 0;
-			}
-		}
-		
-		
-		
-		//Basic AI
-		
-		if (walking) animSprite.update();
-		else animSprite.setFrame(0);
-		
-		if (ya < 0) {
-			animSprite = up;
-			dir = Direction.UP;
-		} else if (ya > 0) {
-			animSprite = down;
-			dir = Direction.DOWN;
-		}
-		
-		if (xa < 0) {
-			animSprite = left;
-			dir = Direction.LEFT;
-		} else if (xa > 0) {
-			animSprite = right;
-			dir = Direction.RIGHT;
-		}
-		
+		Player player = level.getClientPlayer();
+		if (x < player.getX()) xa++;
+		if (x > player.getX()) xa--;
+		if (y < player.getY()) ya++;
+		if (y > player.getY()) ya--;
 		
 		if (xa != 0 || ya != 0) {
 			move(xa, ya); 
@@ -68,10 +42,32 @@ public class Chaser extends Mob {
 		}
 	}
 
+	public void update() {
+		move();
+		if (walking) animSprite.update();
+		else animSprite.setFrame(0);
+		if (ya < 0) {
+			animSprite = up;
+			dir = Direction.UP;
+		} else if (ya > 0) {
+			animSprite = down;
+			dir = Direction.DOWN;
+		}
+		if (xa < 0) {
+			animSprite = left;
+			dir = Direction.LEFT;
+		} else if (xa > 0) {
+			animSprite = right;
+			dir = Direction.RIGHT;
+		}
+	}
+	
+	
+
 
 	public void render(Screen screen) {
 		sprite = animSprite.getSprite();
-		screen.renderMob(x, y , this);
+		screen.renderMob(x - 16, y - 16 , this);
 	}
 
 }
