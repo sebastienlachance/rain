@@ -27,7 +27,7 @@ public class SpawnLevel extends Level {
 		} 
 		for (int i = 0; i < 1; i++) {
 			add(new Chaser(20, 55));	
-			//add(new Dummy(20, 55));
+			add(new Dummy(20, 55));
 		}
 	}
 	

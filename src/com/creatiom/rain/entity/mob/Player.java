@@ -1,6 +1,9 @@
 package com.creatiom.rain.entity.mob;
 
+import java.util.List;
+
 import com.creatiom.rain.Game;
+import com.creatiom.rain.entity.Entity;
 import com.creatiom.rain.entity.projectile.Projectile;
 import com.creatiom.rain.entity.projectile.WizardProjectile;
 import com.creatiom.rain.graphics.AnimatedSprite;
@@ -40,6 +43,7 @@ public class Player extends Mob {
 	} 
 	
 	public void update() {
+	
 		if (walking) animSprite.update();
 		else animSprite.setFrame(0);
 		if (fireRate > 0) fireRate--; 

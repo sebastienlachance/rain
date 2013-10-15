@@ -1,5 +1,7 @@
 package com.creatiom.rain.entity.mob;
 
+import java.util.List;
+
 import com.creatiom.rain.graphics.AnimatedSprite;
 import com.creatiom.rain.graphics.Screen;
 import com.creatiom.rain.graphics.SpriteSheet;
@@ -27,11 +29,17 @@ public class Chaser extends Mob {
 		xa = 0;
 		ya = 0;
 		
-		Player player = level.getClientPlayer();
-		if (x < player.getX()) xa++;
-		if (x > player.getX()) xa--;
-		if (y < player.getY()) ya++;
-		if (y > player.getY()) ya--;
+		List<Player> players = level.getPlayers(this, 50);
+		
+		if (players.size() > 0) {
+			
+			Player player = players.get(0);
+
+			if (x < player.getX()) xa++;
+			if (x > player.getX()) xa--;
+			if (y < player.getY()) ya++;
+			if (y > player.getY()) ya--;
+		}
 		
 		if (xa != 0 || ya != 0) {
 			move(xa, ya); 
@@ -62,9 +70,6 @@ public class Chaser extends Mob {
 		}
 	}
 	
-	
-
-
 	public void render(Screen screen) {
 		sprite = animSprite.getSprite();
 		screen.renderMob(x - 16, y - 16 , this);
