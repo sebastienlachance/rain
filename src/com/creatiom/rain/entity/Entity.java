@@ -11,7 +11,7 @@ public class Entity {
 	private boolean removed = false;
 	protected Sprite sprite;
 	protected final Random random = new Random();
-	protected int x, y;
+	protected double x, y;
 	public Level level;
 	
 	public Entity() {
@@ -29,7 +29,7 @@ public class Entity {
 	}
 	
 	public void render(Screen screen) {
-		
+		if (sprite != null) screen.renderSprite((int)x, (int)y, sprite, true);
 	}
 	
 	public void remove() {
@@ -37,11 +37,11 @@ public class Entity {
 		removed = true;
 	}
 	
-	public int getX() {
+	public double getX() {
 		return x;
 	}
 	
-	public int getY() {
+	public double getY() {
 		return y;
 	}
 	
