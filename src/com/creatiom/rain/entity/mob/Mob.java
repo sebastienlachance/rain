@@ -4,7 +4,6 @@ import com.creatiom.rain.entity.Entity;
 import com.creatiom.rain.entity.projectile.Projectile;
 import com.creatiom.rain.entity.projectile.WizardProjectile;
 import com.creatiom.rain.graphics.Screen;
-import com.creatiom.rain.graphics.Sprite;
 
 public abstract class Mob extends Entity {
 
