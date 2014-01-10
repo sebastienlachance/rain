@@ -194,15 +194,12 @@ public class Level {
 				if (at.solid()) continue;
 				
 				Vector2i a = new Vector2i(x + xi, y + yi);
-				double gCost = current.gCost + getDistance(current.tile, a);
+				double gCost = current.gCost + (getDistance(current.tile, a) == 1 ? 1 : 0.95);
 				double hCost = getDistance(a, goal);
 				Node node = new Node(a, current, gCost, hCost);
 				
 				if (vecInList(closedList, a) && gCost >= node.gCost) continue;
 				if (!vecInList(openList, a) || gCost < node.gCost) openList.add(node); 	
-				
-				
-				
 			}
 		}
 		
@@ -222,7 +219,7 @@ public class Level {
 		double dx = tile.getX() - goal.getX();
 		double dy = tile.getY() - goal.getY();
 		
-		return Math.sqrt(dx * dx + dy * dy);
+		return Math.sqrt(dx * dx + dy *dy);
 	}
 	
  	public Player getClientPlayer() {
